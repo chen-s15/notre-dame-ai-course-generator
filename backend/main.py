@@ -10,8 +10,12 @@ import traceback
 # Load environment variables
 load_dotenv()
 
-# Configure OpenAI
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Configure OpenAI with explicit settings
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),
+    base_url="https://api.openai.com/v1",
+    timeout=60.0
+)
 
 app = FastAPI()
 
