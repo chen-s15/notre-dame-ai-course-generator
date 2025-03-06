@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
-import openai
+from openai import OpenAI
 from dotenv import load_dotenv
 import os
 import traceback
@@ -11,7 +11,7 @@ import traceback
 load_dotenv()
 
 # Configure OpenAI
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 app = FastAPI()
 
@@ -91,8 +91,8 @@ async def chat(request: ChatRequest):
 
         print("Sending request to OpenAI with messages:", messages)
 
-        # Call OpenAI API
-        response = openai.ChatCompletion.create(
+        # Call OpenAI API with updated syntax
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=messages,
             temperature=0.7,
