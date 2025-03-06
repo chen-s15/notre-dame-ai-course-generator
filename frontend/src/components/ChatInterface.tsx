@@ -44,11 +44,12 @@ function ChatInterface() {
       const response = await sendMessage([...messages, userMessage])
       setMessages(prev => [...prev, { role: 'assistant', content: response }])
     } catch (error) {
+      console.error('Chat error:', error);
       toast({
         title: 'Error',
-        description: 'Failed to get response from AI',
+        description: error instanceof Error ? error.message : 'Failed to get response from AI',
         status: 'error',
-        duration: 3000,
+        duration: 5000,
         isClosable: true,
       })
     } finally {
