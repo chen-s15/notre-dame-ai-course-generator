@@ -16,6 +16,30 @@ The application is deployed on:
 - Frontend: [Vercel](https://notre-dame-ai-course-generator.vercel.app)
 - Backend: [Railway](https://notre-dame-ai-course-generator-production.up.railway.app)
 
+## Local Development
+
+You'll need 2 terminal windows:
+
+### Terminal 1 (Backend)
+```bash
+cd backend
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+uvicorn main:app --reload
+```
+The backend will run on http://localhost:8000
+
+### Terminal 2 (Frontend)
+```bash
+cd frontend
+npm run dev
+```
+The frontend will run on http://localhost:5173
+
+After starting both servers:
+1. Backend API will be available at http://localhost:8000
+2. Frontend development server will be at http://localhost:5173
+3. Changes to the code will automatically reload both servers
+
 ## API Key Management
 
 ### Local Development
@@ -125,4 +149,4 @@ uvicorn main:app --reload
 
 ## License
 
-MIT 
+MIT
