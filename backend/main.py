@@ -21,7 +21,9 @@ ALLOWED_ORIGINS = [
     FRONTEND_URL,
     "http://localhost:5173",
     "http://localhost:5174",
-    # Add your Vercel deployment URL here once you have it
+    "https://notre-dame-ai-course-generator.vercel.app",  # Vercel production URL
+    "https://notre-dame-ai-course-generator-git-main.vercel.app",  # Vercel preview URL
+    "https://notre-dame-ai-course-generator-*.vercel.app"  # Any Vercel deployment URL
 ]
 
 app.add_middleware(
